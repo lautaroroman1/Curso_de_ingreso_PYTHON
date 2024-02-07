@@ -36,7 +36,9 @@ class App(customtkinter.CTk):
         importe = self.txt_importe.get()
         importe = float(importe)
         
-        importe = importe - importe * 0.2
+        descuento = importe * 0.2
+
+        importe = importe - descuento
 
         mensaje = f"El importe con el descuento del 20% es {importe}"
         alert("Resultado", mensaje)

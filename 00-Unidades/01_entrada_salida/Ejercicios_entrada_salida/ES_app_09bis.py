@@ -47,7 +47,9 @@ class App(customtkinter.CTk):
 
         incremento = incremento / 100
 
-        sueldo = sueldo + (sueldo * incremento) / 100
+        incremento = sueldo * incremento
+
+        sueldo = sueldo + incremento
 
         mensaje = f"El sueldo más su incremento es {sueldo}"
         alert("Resultado", mensaje)
