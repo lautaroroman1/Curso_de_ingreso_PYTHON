@@ -18,7 +18,7 @@ de la misma utilizando el Dialog Alert. Ej: "El resultado de la …… es: 755"
 '''
 
 class App(customtkinter.CTk):
-    
+
     def __init__(self):
         super().__init__()
 
@@ -48,23 +48,43 @@ class App(customtkinter.CTk):
         self.btn_dividir = customtkinter.CTkButton(master=self, text="Dividir", command=self.btn_dividir_on_click)
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
-        resultado = self.txt_operador_a.get()
+
 
     def btn_sumar_on_click(self):
-        resultado = int(self.txt_operador_a.get()) + int(self.txt_operador_b.get())
-        alert("Resultado", f"El resultado es: {resultado}")
+        num1 = int(self.txt_operador_a.get())
+        num2 = int(self.txt_operador_b.get())
+        
+        resultado = num1 + num2
+
+        mensaje = f"El resultado es: {resultado}"
+        alert("Resultado", mensaje)
 
     def btn_restar_on_click(self):
-        resultado = int(self.txt_operador_a.get()) - int(self.txt_operador_b.get())
-        alert("Resultado", f"El resultado es: {resultado}")
+        num1 = int(self.txt_operador_a.get())
+        num2 = int(self.txt_operador_b.get())
+
+        resultado = num1 - num2
+
+        mensaje = f"El resultado es: {resultado}"
+        alert("Resultado", mensaje)
 
     def btn_multiplicar_on_click(self):
-        resultado = int(self.txt_operador_a.get()) * int(self.txt_operador_b.get())
-        alert("Resultado", f"El resultado es: {resultado}")
+        num1 = int(self.txt_operador_a.get())
+        num2 = int(self.txt_operador_b.get())
+
+        resultado = num1 * num2
+
+        mensaje = f"El resultado es: {resultado}"
+        alert("Resultado", mensaje)
 
     def btn_dividir_on_click(self):
-        resultado = int(self.txt_operador_a.get()) / int(self.txt_operador_b.get())
-        alert("Resultado", f"El resultado es: {resultado}")
+        num1 = int(self.txt_operador_a.get())
+        num2 = int(self.txt_operador_b.get())
+
+        resultado = num1 / num2
+
+        mensaje = f"El resultado es: {resultado}"
+        alert("Resultado", mensaje)
 
 
         
