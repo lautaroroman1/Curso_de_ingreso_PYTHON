@@ -49,7 +49,7 @@ class App(customtkinter.CTk):
 
         importe = importe - (importe * descuento) / 100
 
-        mensaje = f"El importe despúes del descueto del {descuento}% es {importe}"
+        mensaje = f"El importe despúes del descuento del {descuento}% es {importe}"
         alert("Resultado", mensaje)
 
 
