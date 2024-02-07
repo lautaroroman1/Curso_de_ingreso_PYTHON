@@ -36,7 +36,7 @@ class App(customtkinter.CTk):
         sueldo = self.txt_sueldo.get()
         sueldo = int(sueldo)
 
-        sueldo = sueldo + (sueldo * 15) / 100
+        sueldo = sueldo + sueldo * 0.15
 
         mensaje = f"El sueldo más su 15% es {sueldo}"
         alert("Resultado", mensaje)
