@@ -90,8 +90,8 @@ class App(customtkinter.CTk):
         num1 = self.txt_operador_a.get()
         num2 = self.txt_operador_b.get()
 
-        num1 = int(num1)
-        num2 = int(num2)
+        num1 = float(num1)
+        num2 = float(num2)
 
         resultado = num1 / num2
 

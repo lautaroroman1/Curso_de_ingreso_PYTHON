@@ -42,8 +42,8 @@ class App(customtkinter.CTk):
         sueldo = self.txt_sueldo.get()
         incremento = self.txt_incremento.get()
         
-        sueldo = int(sueldo)
-        incremento = int(incremento)
+        sueldo = float(sueldo)
+        incremento = float(incremento)
 
         sueldo = sueldo + (sueldo * incremento) / 100
 

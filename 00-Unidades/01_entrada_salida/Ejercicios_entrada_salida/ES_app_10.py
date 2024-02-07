@@ -34,7 +34,7 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         importe = self.txt_importe.get()
-        importe = int(importe)
+        importe = float(importe)
         
         importe = importe - importe * 0.2
 

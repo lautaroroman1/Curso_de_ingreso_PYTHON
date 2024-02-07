@@ -34,7 +34,7 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         sueldo = self.txt_sueldo.get()
-        sueldo = int(sueldo)
+        sueldo = float(sueldo)
 
         sueldo = sueldo + sueldo * 0.15
 

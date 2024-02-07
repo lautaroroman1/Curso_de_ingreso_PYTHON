@@ -44,8 +44,8 @@ class App(customtkinter.CTk):
         importe = self.txt_importe.get()
         descuento = self.txt_descuento.get()
 
-        importe = int(importe)
-        descuento = int(descuento)
+        importe = float(importe)
+        descuento = float(descuento)
 
         importe = importe - (importe * descuento) / 100
 
