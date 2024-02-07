@@ -52,13 +52,52 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        num1 = self.txt_importe_1.get()
+        num2 = self.txt_importe_2.get()
+        num3 = self.txt_importe_3.get()
+
+        num1 = float(num1)
+        num2 = float(num2)
+        num3 = float(num3)
+
+        resultado = num1 + num2
+        resultado = resultado + num3
+
+        alert("Resultado", f"El resultado de la suma de {num1}, {num2} y {num3} es: {resultado}")
+
 
     def btn_promedio_on_click(self):
-        pass
+        num1 = self.txt_importe_1.get()
+        num2 = self.txt_importe_2.get()
+        num3 = self.txt_importe_3.get()
+
+        num1 = float(num1)
+        num2 = float(num2)
+        num3 = float(num3)
+
+        resultado = num1 + num2
+        resultado = resultado + num3
+        resultado = resultado / 3
+
+        alert("Resultado", f"El promedio de {num1}, {num2} y {num3} es: {resultado}")
 
     def btn_total_iva_on_click(self):
-        pass      
+        num1 = self.txt_importe_1.get()
+        num2 = self.txt_importe_2.get()
+        num3 = self.txt_importe_3.get()
+
+        num1 = float(num1)
+        num2 = float(num2)
+        num3 = float(num3)
+
+        resultado = num1 + num2
+        resultado = resultado + num3
+
+        iva = resultado * 0.21
+        resultado = resultado + iva
+
+        alert("Resultado", f"El importe final con el 21% es: {resultado}")
+
     
 if __name__ == "__main__":
     app = App()
