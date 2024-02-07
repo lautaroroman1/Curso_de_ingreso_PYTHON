@@ -42,8 +42,11 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         num1 = int(self.txt_operador_a.get())
         num2 = int(self.txt_operador_b.get())
+
         resultado = divmod(num1, num2)
-        alert("Resultado", "El resto de dividir {0} entre {1} es: {2}".format(num1, num2, resultado))
+
+        mensaje = f"El resto de dividir {num1} entre {num2} es: {resultado}"
+        alert("Resultado", mensaje)
         
         
     
