@@ -3,6 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import math
 
 '''
 nombre: Lautaro
@@ -52,7 +53,7 @@ class App(customtkinter.CTk):
         toneladas = toneladas * 1000
 
         camiones = toneladas / 3500
-        camiones = int(camiones)
+        camiones =  camiones.__ceil__()
 
         alert("Camiones necesarios", f"Se necesitarán {camiones} camiones")
 
@@ -61,7 +62,7 @@ class App(customtkinter.CTk):
         kilometros = float(kilometros)
 
         horas_tardadas = kilometros / 90
-        horas_tardadas = float(horas_tardadas)
+        horas_tardadas = round(horas_tardadas, 2)
 
         alert("Horas tardadas", f"Cada camión tardará {horas_tardadas}hs. en llegar a su destino")
 
