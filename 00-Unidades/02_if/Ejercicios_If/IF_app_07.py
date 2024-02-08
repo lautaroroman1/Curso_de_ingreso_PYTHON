@@ -24,7 +24,6 @@ class App(customtkinter.CTk):
         super().__init__()
 
         self.title("UTN Fra")
-
         self.label1 = customtkinter.CTkLabel(master=self, text="Edad")
         self.label1.grid(row=0, column=0, padx=20, pady=10)
         
@@ -46,20 +45,12 @@ class App(customtkinter.CTk):
         edad = int(edad)
 
         tipo = self.combobox_tipo.get()
-        tipo = str(tipo)
 
-        if tipo == 'NATIVO':
-            if edad >= 16:
-                mensaje = "PUEDE VOTAR"
-            else:
-                mensaje = "NO PUEDE VOTAR"
-                
+        if (tipo == 'NATIVO' and edad >= 16) or (tipo == 'NATURALIZADO' and edad >= 18):
+            mensaje = "PUEDE VOTAR"
+
         else:
-            if edad >= 18:
-                mensaje = "PUEDE VOTAR"
-
-            else:
-                mensaje = "NO PUEDE VOTAR"
+            mensaje = "NO PUEDE VOTAR"
 
         alert("UTN", mensaje)
     
