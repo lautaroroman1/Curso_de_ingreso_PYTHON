@@ -43,9 +43,16 @@ class App(customtkinter.CTk):
         estatura = float(estatura)
 
         if estatura < 160:
-            alert("UTN", "Base")
-            
+            alert("UTN", "Posición: BASE")
 
+        elif estatura >= 160 and estatura <= 179:
+            alert("UTN", "Posición: ESCOLTA")
+
+        elif estatura >= 180 and estatura <= 199:
+            alert("UTN", "Posición: ALERO")
+
+        else:
+            alert("UTN", "Posición: PÍVOT")
         
         
     
