@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 nombre: Lautaro
-apellido: Román
+apellido: Román Román
 ---
 TP: ES_Facturaciones
 ---

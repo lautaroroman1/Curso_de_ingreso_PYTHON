@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 nombre: Lautaro
-apellido: Román
+apellido: Román Román
 ---
 Ejercicio: entrada_salida_06
 ---

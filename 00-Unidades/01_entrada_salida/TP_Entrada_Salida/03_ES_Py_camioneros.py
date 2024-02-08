@@ -7,7 +7,7 @@ import math
 
 '''
 nombre: Lautaro
-apellido: Román
+apellido: Román Román
 ---
 TP: ES_Camioneros
 ---
