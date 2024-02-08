@@ -16,7 +16,7 @@ Todas las lámparas están  al mismo precio de $800 pesos final.
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
-		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+		E.	Si el importe final con descuento suma más de $4000  se obtiene un descuento adicional de 5%.
 '''
 
 class App(customtkinter.CTk):
@@ -43,8 +43,51 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+
+        cantidad = self.combobox_cantidad.get()
+        cantidad = int(cantidad)
+
+        descuento = 0
+
+        if cantidad >= 6:
+            descuento = 50
+
+        if cantidad == 5:
+            if marca == "ArgentinaLuz":
+                descuento = 40
+
+            else:
+                descuento = 30
         
+        if cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento = 25
+
+            else:
+                descuento = 20
+
+        if cantidad == 3:
+            if marca == "ArgentinaLuz":
+                descuento = 15
+
+            elif marca == "FelipeLamparas":
+                descuento = 10
+
+            else:
+                descuento = 5
+
+        precio_final = cantidad * 800
+        descuento = descuento * precio_final
+        descuento = descuento / 100
+
+        precio_final = precio_final - descuento
+
+        if precio_final > 4000:
+            descuento = precio_final * 0.05
+            precio_final = precio_final - descuento
+
+        alert("UTN", precio_final)
     
 if __name__ == "__main__":
     app = App()

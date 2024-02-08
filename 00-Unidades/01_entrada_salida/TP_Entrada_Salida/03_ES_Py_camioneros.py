@@ -53,7 +53,7 @@ class App(customtkinter.CTk):
         toneladas = toneladas * 1000
 
         camiones = toneladas / 3500
-        camiones =  camiones.__ceil__()
+        camiones = camiones.__ceil__()
 
         alert("Camiones necesarios", f"Se necesitarán {camiones} camiones")
 
