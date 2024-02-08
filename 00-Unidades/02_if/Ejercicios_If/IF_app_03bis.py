@@ -37,9 +37,13 @@ class App(customtkinter.CTk):
         estatura = float(estatura)
 
         if estatura > 1.80:
-            alert("UTN", "Es pivot")
+            mensaje = "ES PÍVOT"
+
         else:
-            alert("UTN", "No es pivot")
+            mensaje = "NO ES PÍVOT"
+            
+        alert("UTN", mensaje)
+            
 
 
 
