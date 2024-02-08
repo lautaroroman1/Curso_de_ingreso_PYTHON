@@ -39,7 +39,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        estatura = self.txt_altura.get()
+        estatura = float(estatura)
+
+        if estatura < 160:
+            alert("UTN", "Base")
+            
 
         
         
