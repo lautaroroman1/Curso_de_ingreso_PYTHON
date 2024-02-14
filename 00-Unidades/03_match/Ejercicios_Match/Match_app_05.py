@@ -35,7 +35,8 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        hora = self.txt_hora.get()
+        
     
     
 if __name__ == "__main__":

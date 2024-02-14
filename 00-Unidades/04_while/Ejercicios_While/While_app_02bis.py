@@ -29,7 +29,16 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+        cont = 1
+        suma = 0
+
+        while cont < 11:
+            if cont % 2 == 0:
+                suma += cont
+
+            cont += 1
+
+        alert("UTN", f"La suma de los números pares entre el 1 y el 10 es: {suma}")
     
     
 if __name__ == "__main__":
