@@ -49,43 +49,50 @@ class App(customtkinter.CTk):
         cantidad = int(cantidad)
 
         descuento = 0
+        descuento_adicional = 0
         precio_final = cantidad * 800
 
         if cantidad >= 6:
-            descuento = 0.5
+            descuento = 50
 
         if cantidad == 5:
             if marca == "ArgentinaLuz":
-                descuento = 0.4
+                descuento = 40
 
             else:
-                descuento = 0.3
+                descuento = 30
         
         if cantidad == 4:
             if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-                descuento = 0.25
+                descuento = 25
 
             else:
-                descuento = 0.2
+                descuento = 20
 
         if cantidad == 3:
             if marca == "ArgentinaLuz":
-                descuento = 0.15
+                descuento = 15
 
             elif marca == "FelipeLamparas":
-                descuento = 0.1
+                descuento = 10
 
             else:
-                descuento = 0.05
+                descuento = 5
 
-        descuento = descuento * precio_final
-        precio_final = precio_final - descuento
+        descuento_final = descuento * precio_final
+        descuento_final = descuento_final / 100
+
+        precio_final = precio_final - descuento_final
 
         if precio_final > 4000:
-            descuento = precio_final * 0.05
-            precio_final = precio_final - descuento
+            descuento_adicional = 5
 
-        mensaje = f"El valor final es de {precio_final}"
+            descuento_final = descuento_adicional * precio_final
+            descuento_final = descuento_final / 100
+
+            precio_final = precio_final - descuento_final
+
+        mensaje = f"El valor final es de ${precio_final} con un descuento del {descuento}% y un descuento adicional del {descuento_adicional}%"
         alert("UTN", mensaje)
     
 if __name__ == "__main__":
