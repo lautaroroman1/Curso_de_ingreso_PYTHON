@@ -11,7 +11,7 @@ apellido: Román
 Ejercicio: while_10
 ---
 Enunciado:
-Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario 
+Al presionar el botón 'Comenzar ingreso', solicitar mediante prompt todos los números que el usuario 
 quiera hasta que presione el botón Cancelar (en el prompt). 
 Luego calcular:
     A. La suma acumulada de los negativos

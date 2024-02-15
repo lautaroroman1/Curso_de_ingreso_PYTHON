@@ -11,7 +11,7 @@ apellido: Román
 Ejercicio: while_09
 ---
 Enunciado:
-Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera 
+Al presionar el botón 'Comenzar ingreso', solicitar mediante prompt todos los números que el usuario quiera 
 hasta que presione el botón Cancelar (en el prompt). 
 Luego determinar el máximo y el mínimo 
 e informarlos en los cuadros de textos txt_maximo y txt_minimo respectivamente
@@ -36,11 +36,39 @@ class App(customtkinter.CTk):
 
         self.btn_mostrar = customtkinter.CTkButton(
             master=self, text="Comenzar Ingreso", command=self.btn_comenzar_ingreso_on_click)
-        self.btn_mostrar.grid(row=2, padx=20, pady=20,
-                              columnspan=2, sticky="nsew")
+        self.btn_mostrar.grid(row=2, padx=20, pady=20, columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+
+        contador = 0
+        while True:
+            
+
+            numero = prompt("UTN", "Ingrese un número")
+
+            if numero == None:
+                break
+                
+            else:
+                numero = float(numero)
+
+                if contador == 0:
+                    maximo = numero
+                    minimo = numero
+                
+                if numero > maximo:
+                    maximo = numero
+
+                if numero < minimo:
+                    minimo = numero
+
+            contador += 1
+
+        self.txt_maximo.delete(0, "end")
+        self.txt_minimo.delete(0, "end")
+
+        self.txt_maximo.insert(0, maximo)
+        self.txt_minimo.insert(0, minimo)
 
 
 if __name__ == "__main__":

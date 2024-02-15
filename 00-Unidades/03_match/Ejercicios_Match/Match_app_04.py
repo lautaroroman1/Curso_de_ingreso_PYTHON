@@ -44,16 +44,7 @@ class App(customtkinter.CTk):
             case "Febrero":
                 mensaje = "Tiene 28 días"
 
-            case "Abril":
-                mensaje = "Tiene 30 días"
-                
-            case "Junio":
-                mensaje = "Tiene 30 días"
-
-            case "Septiembre":
-                mensaje = "Tiene 30 días"
-
-            case "Noviembre":
+            case "Abril" | "Junio" | "Septiembre" | "Noviembre":
                 mensaje = "Tiene 30 días"
 
             case _:

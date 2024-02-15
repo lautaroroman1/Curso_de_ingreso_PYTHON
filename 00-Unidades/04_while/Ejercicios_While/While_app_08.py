@@ -11,7 +11,7 @@ apellido: Román
 Ejercicio: while_08
 ---
 Enunciado:
-Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera, 
+Al presionar el botón 'Comenzar ingreso', solicitar mediante prompt todos los números que el usuario quiera, 
 hasta que presione el botón Cancelar (en el prompt) o el usuario ingrese cero. 
 Calcular la suma acumulada de los positivos y multiplicar los negativos. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_producto
@@ -36,7 +36,29 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+
+        suma_positivos = 0
+        multiplicar_negativos = 0
+
+        while True:
+            numero = prompt("UTN", "Ingrese un número")
+
+            if numero == None:
+                break
+                
+            else:
+                numero = float(numero)
+
+                if numero > 0:
+                    suma_positivos += numero
+
+                else:
+                    multiplicar_negativos *= numero
+
+
+        self.txt_suma_acumulada.insert(0, suma_positivos)
+        self.txt_producto.insert(0, multiplicar_negativos)
+
 
     
 if __name__ == "__main__":

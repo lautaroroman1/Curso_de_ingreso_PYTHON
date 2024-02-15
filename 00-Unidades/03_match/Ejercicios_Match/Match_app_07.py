@@ -34,7 +34,22 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        punto_cardinal = self.combobox_destino.get()
+
+        match punto_cardinal:
+            case "Bariloche":
+                mensaje = "Oeste"
+
+            case "Mar del plata":
+                mensaje = "Este"
+        
+            case "Cataratas":
+                mensaje = "Norte"
+        
+            case "Ushuaia":
+                mensaje = "Sur"
+
+        alert("UTN", mensaje)
     
     
 if __name__ == "__main__":

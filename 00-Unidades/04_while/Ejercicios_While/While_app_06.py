@@ -11,7 +11,7 @@ apellido: Román
 Ejercicio: while_06
 ---
 Enunciado:
-Al presionar el botón ‘Comenzar ingreso’, solicitar 5 números mediante prompt. 
+Al presionar el botón 'Comenzar ingreso', solicitar 5 números mediante prompt. 
 Calcular la suma acumulada y el promedio de los números ingresados. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_promedio
 
@@ -35,7 +35,20 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        contador = 0
+        suma = 0
+
+        while contador < 5:
+            numero = prompt("UTN", "Ingrese un número")
+            numero = int(numero)
+
+            suma += numero
+            contador += 1
+
+        promedio = suma / contador
+
+        self.txt_suma_acumulada.insert(0, suma)
+        self.txt_promedio.insert(0, promedio)
 
     
 if __name__ == "__main__":
