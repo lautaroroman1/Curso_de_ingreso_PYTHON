@@ -54,22 +54,22 @@ class App(customtkinter.CTk):
 
         if cantidad >= 6:
             descuento = 50
-
-        if cantidad == 5:
+        
+        elif cantidad == 5:
             if marca == "ArgentinaLuz":
                 descuento = 40
 
             else:
                 descuento = 30
         
-        if cantidad == 4:
+        elif cantidad == 4:
             if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
                 descuento = 25
-
+                
             else:
                 descuento = 20
 
-        if cantidad == 3:
+        elif cantidad == 3:
             if marca == "ArgentinaLuz":
                 descuento = 15
 

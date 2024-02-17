@@ -41,9 +41,8 @@ class App(customtkinter.CTk):
     def btn_comenzar_ingreso_on_click(self):
 
         contador = 0
+        
         while True:
-            
-
             numero = prompt("UTN", "Ingrese un número")
 
             if numero == None:

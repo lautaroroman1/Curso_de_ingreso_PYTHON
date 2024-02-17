@@ -37,8 +37,38 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        suma_positivos = 0
+        suma_negativos = 0
+        contador_positivos = 0
+        contador_negativos = 0
+        contador_ceros = 0
 
+
+        while True:
+            numero = prompt("UTN", "Ingrese un número")
+
+            if numero == None:
+                break
+
+            else:
+                numero = float(numero)
+
+                if numero > 0:
+                    suma_positivos += numero
+                    contador_positivos += 1
+
+                elif numero < 0:
+                    suma_negativos += numero
+                    contador_negativos += 1
+
+                else:
+                    contador_ceros += 1
+
+        diferencia_cantidad = abs(contador_positivos - contador_negativos)
+
+        mensaje = f"La cantidad de números positivos es: {contador_positivos}.\n La cantidad de números negativos es: {contador_negativos}.\n La suma de los números positivos es: {suma_positivos}. \n La suma de los números negativos es {suma_negativos}.\n La diferencia entre la cantidad de números positivos y negativos es: {diferencia_cantidad}."
+
+        alert("UTN", mensaje)
     
 if __name__ == "__main__":
     app = App()
