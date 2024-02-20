@@ -33,6 +33,16 @@ class App(customtkinter.CTk):
         suma = 0
 
         while contador < 11:
+            suma += contador
+            contador += 2
+        
+        alert("UTN", f"La suma de los números pares entre el 1 y el 10 es: {suma}")
+            
+        """
+        contador = 0
+        suma = 0
+
+        while contador < 11:
             if contador % 2 == 0:
                 suma += contador
 
@@ -40,18 +50,7 @@ class App(customtkinter.CTk):
 
         alert("UTN", f"La suma de los números pares entre el 1 y el 10 es: {suma}")
 
-        """"
-        contador = 2
-        suma = 0
-
-        while contador < 11:
-            suma += cont
-            contador += 2
-        
-        alert("UTN", f"La suma de los números pares entre el 1 y el 10 es: {suma}")
-        
         """
-    
     
 if __name__ == "__main__":
     app = App()

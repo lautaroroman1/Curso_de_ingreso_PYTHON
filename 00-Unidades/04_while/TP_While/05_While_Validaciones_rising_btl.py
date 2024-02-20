@@ -55,7 +55,7 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         while True:
-            apellido = prompt("UTN", "Ingrese su apellido:")
+            apellido = None
 
             if apellido == None or apellido == "":
                 apellido = prompt("UTN", "Ingrese su apellido")
