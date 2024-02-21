@@ -55,42 +55,30 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         while True:
-            apellido = None
+            apellido = prompt("UTN", "Ingrese su apellido")
 
-            if apellido == None or apellido == "":
-                apellido = prompt("UTN", "Ingrese su apellido")
-
-            else:
+            if apellido == None:
                 break
 
-        while True:
             edad = prompt("UTN", "Ingrese su edad")
 
-            if edad == "" or edad ==  None:
-                edad = prompt("UTN", "Ingrese su edad")
+            if edad ==  None:
+                break
 
             else:
                 edad = int(edad)
                 if edad < 18 or edad > 91:
                     edad = prompt("UTN", "Ingrese su edad")
 
-                else:
-                    break
-
-        while True:
             estado_civil = prompt("UTN", "Ingrese su estado civil")
 
-            if estado_civil == None or estado_civil == "":
-                estado_civil = prompt("UTN", "Ingrese su estado civil")
-
-            else:
+            if estado_civil == None:
                 break
 
-        while True:
             numero_legajo = prompt("UTN", "Ingrese su número de legajo")
 
-            if numero_legajo == "" or numero_legajo == None:
-                numero_legajo = prompt("UTN", "Ingrese su número de legajo")
+            if numero_legajo == None:
+                break
 
             else:
                 if numero_legajo.isdigit() == False:

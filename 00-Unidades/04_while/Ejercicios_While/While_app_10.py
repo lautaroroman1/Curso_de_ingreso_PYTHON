@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:  
-apellido: 
+nombre: Lautaro
+apellido: Román
 ---
 Ejercicio: while_10
 ---
@@ -61,6 +61,7 @@ class App(customtkinter.CTk):
 
         bandera_primer_ingreso = True
 
+        bandera_primer_minimo = True
         contador_primer_minimo = 0
         iteracion_primer_minimo = 0
 
@@ -95,6 +96,9 @@ class App(customtkinter.CTk):
                 
                 iteracion_primer_minimo = contador_primer_minimo
                 
+                if bandera_primer_minimo:
+                    iteracion_primer_minimo = contador_primer_minimo
+                    bandera_primer_minimo = False
 
         diferencia = abs(cantidad_negativa - cantidad_positiva)
         

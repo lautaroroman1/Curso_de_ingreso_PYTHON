@@ -35,7 +35,20 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        
+        while True:
+            nombre = prompt("UTN", "Ingrese un nombre:")
+            
+            if nombre == None:
+                break
+
+            edad = prompt("UTN", "Ingese la edad:")
+
+            if edad <= 25:
+                prompt("UTN", "La edad debe ser mayor a 25. Reingrese la edad:")
+
+            
+            
 
 
 if __name__ == "__main__":
