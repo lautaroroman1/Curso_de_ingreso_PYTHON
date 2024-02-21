@@ -54,6 +54,7 @@ class App(customtkinter.CTk):
         seguir_ingresando = True
 
         contador_masculino_IA_IOT = 0
+        contador_IOT_edad = 0
 
         contador_IA = 0
         contador_IOT = 0
@@ -63,28 +64,32 @@ class App(customtkinter.CTk):
         contador_femenino = 0
         contador_otro = 0
 
-        while seguir_ingresando:
-            nombre = input("Ingrese su nombre:")
+        contador_femenino_IA = 0
+        acumulador_edad_femenino = 0
 
-            edad = input("Ingrese su edad:")
+        bandera_minimo = False
+        minimo_RV_RA = 0
+
+
+        while seguir_ingresando:
+            nombre = input("Ingrese su nombre: ")
+
+            edad = input("Ingrese su edad: ")
             edad = int(edad)
 
             while edad < 18:
-                edad = input("Reingrese su edad:")
+                edad = input("Reingrese su edad: ")
                 edad = int(edad)
 
-            genero = input("Ingrese su género: Masculino, Femenino u Otro")
+            genero = input("Ingrese su género: Masculino, Femenino u Otro ")
 
             while genero != "Masculino" and genero != "Femenino" and genero != "Otro":
-                genero = input("Reingrese su género: Masculino, Femenino u Otro")
+                genero = input("Reingrese su género: Masculino, Femenino u Otro ")
 
             tecnologia = input("Ingrese tecnología: IA, RV/RA, IOT")
             
             while tecnologia != "IA" and tecnologia != "RV/RA" and tecnologia != "IOT":
-                tecnologia = input("Reingrese tecnología: IA, RV/RA, IOT")
-
-            if genero == "Masculino" and (tecnologia == "IOT" or tecnologia == "IA") and edad >= 25 and edad <= 50:
-                contador_masculino_IA_IOT += 1
+                tecnologia = input("Reingrese tecnología: IA, RV/RA, IOT ")
 
             match tecnologia:
                 case "IA":
@@ -93,20 +98,37 @@ class App(customtkinter.CTk):
                 case "IOT":
                     contador_IOT += 1
 
+                    if (edad > 18 and edad < 25) or edad > 33 and edad < 42:
+                        contador_IOT_edad += 1
+
                 case "RV/RA":
                     contador_RV_RA += 1
+
+                    if edad < minimo_RV_RA or bandera_minimo == False:
+                        minimo_RV_RA = edad
+                        bandera_minimo = True
+
+                        nombre_minimo = nombre
+                        genero_minimo = genero
 
             match genero:
                 case "Masculino":
                     contador_masculino += 1
+                    
+                    if (tecnologia == "IOT" or tecnologia == "IA") and edad >= 25 and edad <= 50:
+                        contador_masculino_IA_IOT += 1
                 
                 case "Femenino":
                     contador_femenino += 1
 
+                    if tecnologia == "IA":
+                        contador_femenino_IA += 1
+                        acumulador_edad_femenino += edad
+
                 case "Otro":
                     contador_otro += 1
 
-            seguir_ingresando = question("Desea seguir ingresando datos?")
+            seguir_ingresando = question("¿Desea seguir ingresando datos?: ")
 
         if contador_IA > contador_IOT and contador_IA > contador_RV_RA:
             print("2. Se voto más IA")
@@ -122,9 +144,21 @@ class App(customtkinter.CTk):
         porcentaje_masculino = (contador_masculino * 100) / total_empleados
         porcentaje_femenino = (contador_femenino * 100) / total_empleados
         porcentaje_otro = 100 - (porcentaje_masculino + porcentaje_femenino)
+
+        porcentaje_IOT_edad =  (contador_IOT_edad * 100) / contador_IOT
+
+        if contador_femenino_IA > 0:
+            promedio_femenino_ia = acumulador_edad_femenino / contador_femenino_IA
+
+        else:
+            promedio_femenino_ia = 0
         
         print(f"1. Cantidad de empleados de género masculino que votaron por IA/IOT entre 25 y 50 años: {contador_masculino_IA_IOT}")
-        print(f"3. Porcentajes de género: \n Masculino: {porcentaje_masculino} \n Femenino: {porcentaje_femenino} \n Otro: {porcentaje_otro}")
+        print(f"3. Porcentajes de género: \n Masculino: {porcentaje_masculino}% \n Femenino: {porcentaje_femenino}% \n Otro: {porcentaje_otro}%")
+        print(f"4. Pocentaje de empleados que votaron por IOT entre 18 y 25 o 33 y 42 años (en base a los empleados que votaron por IOT): {porcentaje_IOT_edad}%")
+        print(f"5. Promedio de empleadas femeninas que votaron por IA: {promedio_femenino_ia}")
+        print(f"6. Nombre y género del empleado más joven que votó por RV/RA: {nombre_minimo}, {genero_minimo}")
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
