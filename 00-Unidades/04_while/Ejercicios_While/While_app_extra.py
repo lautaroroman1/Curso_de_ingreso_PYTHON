@@ -128,12 +128,12 @@ class App(customtkinter.CTk):
                 case "Otro":
                     contador_otro += 1
 
-            seguir_ingresando = question("¿Desea seguir ingresando datos?: ")
+            seguir_ingresando = question("Continuar", "¿Desea seguir ingresando datos?: ")
 
         if contador_IA > contador_IOT and contador_IA > contador_RV_RA:
             print("2. Se voto más IA")
 
-        elif contador_IOT > contador_IA and contador_IOT > contador_RV_RA:
+        elif contador_IOT > contador_RV_RA:
             print("2. Se voto más IOT")
 
         else:
