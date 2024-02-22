@@ -59,7 +59,7 @@ class App(customtkinter.CTk):
 
         acumulador_MEP = 0
 
-        while contador_datos <= 10:
+        while contador_datos <= 4:
 
             nombre = input("Ingrese su nombre: ")
 
@@ -90,7 +90,7 @@ class App(customtkinter.CTk):
                     if bandera_primer_BONOS_CEDEAR == False:
                         nombre_BONOS_CEDEAR = nombre
                         cantidad_BONOS_CEDEAR = cantidad_instrumentos
-                        bandera_primer_BONOS_CEDEAR == True
+                        bandera_primer_BONOS_CEDEAR = True
 
                 case "BONOS":
                     contador_BONOS += 1
@@ -102,7 +102,7 @@ class App(customtkinter.CTk):
                     if bandera_primer_BONOS_CEDEAR == False:
                         nombre_BONOS_CEDEAR = nombre
                         cantidad_BONOS_CEDEAR = cantidad_instrumentos
-                        bandera_primer_BONOS_CEDEAR == True
+                        bandera_primer_BONOS_CEDEAR = True
 
                 case "MEP":
                     contador_MEP += 1
@@ -112,7 +112,7 @@ class App(customtkinter.CTk):
 
             if monto < minimo_dinero or bandera_minimo == False:
                 minimo_dinero = monto
-                bandera_minimo == True
+                bandera_minimo = True
                 nombre_minimo = nombre
                 posicion_minimo_dinero = contador_datos
 
