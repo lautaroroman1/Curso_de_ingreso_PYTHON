@@ -26,7 +26,51 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        #Resuelto con bandera
+        limite = prompt("UTN", "Ingrese un número: ")
+        limite = int(limite)
+
+        contador_primos = 0
+
+        for i in range(2, limite+1):
+
+            bandera_divisores = False
+
+            for j in range(2, i):
+                if i % j == 0:
+                    bandera_divisores = True
+                    break
+        
+            if bandera_divisores == False:
+                print(f"Primo: {i}")
+                contador_primos += 1
+
+        alert("UTN", f"Cantidad: {contador_primos}")
+
+        """
+        #Resuelto con contador
+        limite = prompt("UTN", "Ingrese un número: ")
+        limite = int(limite)
+
+        contador_primos = 0
+
+        for i in range(2, limite+1):
+
+            contador_divisores = 0
+
+            for j in range(1, i+1):
+                if i % j == 0:
+                    contador_divisores += 1
+        
+            if contador_divisores == 2:
+                print(f"Primo: {i}")
+                contador_primos += 1
+
+        alert("UTN", f"Cantidad: {contador_primos}")
+
+        """
+
     
 if __name__ == "__main__":
     app = App()

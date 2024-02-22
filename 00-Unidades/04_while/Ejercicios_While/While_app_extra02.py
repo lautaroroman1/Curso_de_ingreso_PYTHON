@@ -36,9 +36,9 @@ Al finalizar la carga, el programa debera mostrar los siguientes informes:
     #! 2) - Determina cuántas personas compraron entradas de tipo "General" pagando con tarjeta 
     #!          de crédito y su edad promedio.
     #! 3) - Calcula el porcentaje de personas que compraron entradas de tipo "Platea" y 
-    #!          pagaron con tarjeta de débito  respecto al total de personas en la lista.
+    #!          pagaron con tarjeta de débito  respecto al total de personas en la lista. TODAS
     #! 4) - Cuál es el total de descuentos en pesos que aplicó la empresa, pero solo de 
-    #!          los aplicados a tarjetas de crédito
+    #!          los aplicados a tarjetas de crédito MONTO TOTAL
     #! 5) - El nombre y la edad de la persona que pagó el precio más alto por una entrada de 
     #!          tipo "General" y pagó con tarjeta de débito (Solo la primera que se encuentre)
     #! 6) - La cantidad de personas que compraron entradas de tipo "Platea" y cuya 
