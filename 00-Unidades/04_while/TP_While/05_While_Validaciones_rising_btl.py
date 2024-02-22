@@ -61,6 +61,7 @@ class App(customtkinter.CTk):
         
         while edad < 18 or edad > 91:
             edad = prompt("UTN", "Reingrese su edad")
+            edad = int(edad)
 
         estado_civil = prompt("UTN", "Ingrese su estado civil")
 
@@ -68,9 +69,11 @@ class App(customtkinter.CTk):
             estado_civil = prompt("UTN", "Reingrese su estado civil")
 
         numero_legajo = prompt("UTN", "Ingrese su número de legajo")
-
-        while numero_legajo.isdigit() == False or numero_legajo:
-            numero_legajo = prompt("UTN", "Ingrese su número de legajo")
+        numero_legajo = int(numero_legajo)
+                
+        while numero_legajo < 1000 or numero_legajo > 9999:
+            numero_legajo = prompt("UTN", "Reingrese su número de legajo: ")
+            numero_legajo = int(numero_legajo)
 
         self.txt_apellido.delete(0, "end")
         self.txt_edad.delete(0, "end")

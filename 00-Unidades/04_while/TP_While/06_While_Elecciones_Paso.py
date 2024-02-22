@@ -36,18 +36,57 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         
-        while True:
-            nombre = prompt("UTN", "Ingrese un nombre:")
+        seguir_ingresando = True
+
+        minimo_votado = 0
+        maximo_votado = 0
+        bandera_candidato = False
+
+        suma_edades = 0
+        contador_candidatos = 0
+
+        total_votos = 0
+
+        while seguir_ingresando:
+            nombre = prompt("UTN", "Ingrese su nombre: ")
+
+            edad = prompt("UTN", "Ingrese su edad: ")
+            edad = int(edad)
+
+            while edad < 25:
+                edad = prompt("UTN", "Reingrese su edad: ")
+                edad = int(edad)
+
+            cantidad_votos = prompt("UTN", "Ingrese la cantidad de votos: ")
+            cantidad_votos = int(cantidad_votos)
+
+            while cantidad_votos < 0:
+                cantidad_votos = prompt("UTN", "Reingrese la cantidad de votos (no puede ser menor a 0): ")
+                cantidad_votos = int(cantidad_votos)
+
+            if cantidad_votos < minimo_votado or bandera_candidato == False:
+                minimo_votado = cantidad_votos
+                candidato_menos_votado = nombre
+                edad_menos_votado = edad
             
-            if nombre == None:
-                break
+            if cantidad_votos > maximo_votado or bandera_candidato == False:
+                maximo_votado = cantidad_votos
+                bandera_candidato = True
 
-            edad = prompt("UTN", "Ingese la edad:")
+                candidato_mas_votado = nombre
 
-            if edad <= 25:
-                prompt("UTN", "La edad debe ser mayor a 25. Reingrese la edad:")
+            suma_edades += edad
+            contador_candidatos += 1
+            total_votos += cantidad_votos
 
-            
+
+            seguir_ingresando = question("UTN", "Desea seguir ingresando datos?")
+
+        promedio_edades = suma_edades / contador_candidatos
+
+        mensaje = f"Nombre del candidato con más votos: {candidato_mas_votado} \n Nombre y edad del candidatos menos votado: {candidato_menos_votado}, {edad_menos_votado} \n Promedio de edades de los candidatos: {promedio_edades} \n Total de votos emitidos: {total_votos}"
+
+        alert("UTN", mensaje)
             
 
 
