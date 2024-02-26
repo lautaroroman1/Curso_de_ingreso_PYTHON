@@ -61,15 +61,95 @@ class App(customtkinter.CTk):
     def btn_mostrar_iteracion_on_click(self):
         seguir_ingresando = True
 
+        contador_campo_masculino = 0
+        contador_campo_femenino = 0
+        contador_campo_otro = 0
+        mayor_genero_campo = 0
+
+        contador_general_credito = 0
+        acumulador_edades_credito = 0
+
         while seguir_ingresando:
-            nombre_comprador = prompt
+            nombre_comprador = prompt("Datos", "Ingrese su nombre: ")
+
+            edad = prompt("Datos", "Ingrese su edad: ")
+            edad = int(edad)
+
+            while edad < 16:
+                edad = prompt("Datos", "Ingrese su edad: ")
+                edad = int(edad)
+
+            genero = prompt("Datos", "Ingrese su género (Masculino, Femenino, Otro): ")
+
+            while genero != "Masculino" and genero != "Femenino" and genero != "Otro":
+                genero = prompt("Datos", "Ingrese su género (Masculino, Femenino, Otro): ")
+
+            tipo_entrada = prompt("Datos", "Tipo de entrada (General, Campo, Platea): ")
+
+            while tipo_entrada != "General" and tipo_entrada != "Campo" and tipo_entrada != "Platea":
+                tipo_entrada = prompt("Datos", "Tipo de entrada (General, Campo, Platea): ")
+
+            medio_de_pago = prompt("Datos", "Ingrese su medio de pago (Credito, Efectivo, Debito): ")
+            
+            while medio_de_pago != "Credito" and medio_de_pago != "Efectivo" and medio_de_pago != "Debito":
+                medio_de_pago = prompt("Datos", "Ingrese su medio de pago (Credito, Efectivo, Debito): ")
+
+            
+
+            match tipo_entrada:
+                case "General":
+                    valor_entrada = 16000
+
+                    if medio_de_pago == "Credito":
+                        contador_general_credito += 1
+                        acumulador_edades_credito += edad
 
 
+                case "Campo":
+                    valor_entrada = 25000
+
+                    match genero:
+                        case "Masculino":
+                            contador_campo_masculino += 1
+
+                        case "Femenino":
+                            contador_campo_femenino += 1
+
+                        case "Otro":
+                            contador_campo_otro += 1
+
+                case "Platea":
+                    valor_entrada = 30000
+
+
+            if medio_de_pago == "Credito":
+                descuento_entrada = 20
+
+            elif medio_de_pago == "Debito":
+                descuento_entrada = 15
+
+            else:
+                descuento_entrada = 0
 
 
 
 
             seguir_ingresando = question("Continuar", "¿Desea seguir ingresando datos?")
+
+        if contador_campo_masculino > contador_campo_femenino and contador_campo_masculino > contador_campo_otro:
+            mayor_genero_campo = "Masculino"
+
+        elif contador_campo_femenino > contador_campo_otro:
+            mayor_genero_campo = "Femenino"
+
+        else:
+            mayor_genero_campo = "Otro"
+
+        promedio_edad_credito = acumulador_edades_credito / contador_general_credito
+
+
+        mensaje = f"1) Género más frecuente que compró entradas de tipo 'Campo': {mayor_genero_campo} \n 2) Cantidad de personas que compraron entradas de tipo 'General' con tarjeta de crédito: {contador_general_credito}, edad promedio de estas personas: {promedio_edad_credito} \n 3)"
+        alert("", mensaje)
     
     
 if __name__ == "__main__":
